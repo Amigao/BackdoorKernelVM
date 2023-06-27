@@ -9,13 +9,13 @@ Este guia descreve as configurações necessárias para estabelecer a comunicaç
 
 2. Configure regras de encaminhamento para direcionar o tráfego de entrada para a VM desejada. Essas regras garantem que o tráfego seja manipulado e encaminhado corretamente.
 
-   No nosso caso, estamos usando a máquina virtual da Oracle (VirtualBox); seguimos o seguinte passo a passo para configurar a rede NAT do nosso socket: https://stackoverflow.com/questions/48138413/how-to-connect-through-socket-to-virtual-machine.
-
 ## IP Genérico e Network Address Translation (NAT)
 
 1. As VMs geralmente possuem endereços IP internos válidos somente dentro da rede virtual. Para permitir a comunicação com o ambiente externo, crie um IP genérico (endereço IP público) mapeado para o endereço IP interno da VM.
 
 2. Uma opção comum é utilizar uma rede do tipo Network Address Translation (NAT). Essa escolha simplifica a configuração e reduz a necessidade de endereços IP públicos. Com o NAT, as VMs podem compartilhar um único endereço IP externo, enquanto cada VM possui um endereço IP interno. A tradução de endereço é realizada para permitir a comunicação com o ambiente externo.
+
+   No nosso caso, estamos usando a máquina virtual da Oracle (VirtualBox); seguimos o seguinte passo a passo para configurar a rede NAT do nosso socket: https://stackoverflow.com/questions/48138413/how-to-connect-through-socket-to-virtual-machine.
 
 ## Lidando com o Firewall do Windows
 
