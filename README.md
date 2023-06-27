@@ -1,5 +1,3 @@
-Claro! Peço desculpas pela confusão anterior. Aqui está o conteúdo final do README em formato de texto:
-
 # BackdoorKernelVM
 
 O BackdoorKernelVM é um projeto de comunicação entre uma máquina virtual Linux e o sistema operacional Windows, usando um servidor e um cliente. Este projeto permite a troca de dados entre as duas máquinas por meio de uma conexão TCP/IP.
