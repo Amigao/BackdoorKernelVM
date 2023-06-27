@@ -16,7 +16,7 @@ Este guia descreve as configurações necessárias para estabelecer a comunicaç
 
 2. Utilize uma rede do tipo Network Address Translation (NAT) para simplificar a configuração. Com o NAT, as VMs podem compartilhar um único endereço IP externo, enquanto cada VM possui um endereço IP interno. A tradução de endereço é realizada para permitir a comunicação com o ambiente externo.
 
-   No nosso caso, estamos usando a máquina virtual da Oracle (VirtualBox); siga o passo a passo disponível em [aqui](https://stackoverflow.com/questions/48138413/how-to-connect-through-socket-to-virtual-machine) para configurar a rede NAT do nosso socket.
+   No nosso caso, estamos usando a máquina virtual da Oracle (VirtualBox); siga o passo a passo disponível [aqui](https://stackoverflow.com/questions/48138413/how-to-connect-through-socket-to-virtual-machine) para configurar a rede NAT do nosso socket.
 
 ## Lidando com o Firewall do Windows
 
