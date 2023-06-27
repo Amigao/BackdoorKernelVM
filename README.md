@@ -49,13 +49,35 @@ O BackdoorKernelVM é um projeto de comunicação entre uma máquina virtual Lin
 
    O servidor agora está em execução e aguardando conexões.
 
+## Compilação e In
+
+serção do Módulo de Kernel
+
+1. Navegue até o diretório que contém o código-fonte do módulo de kernel.
+
+2. Abra um terminal e execute o seguinte comando para compilar o módulo de kernel:
+
+   ```shell
+   make
+   ```
+
+   Isso irá compilar o código-fonte do módulo de kernel e gerar o arquivo objeto de kernel "BackdoorModule.ko".
+
+3. Após a compilação bem-sucedida, insira o módulo de kernel utilizando o seguinte comando:
+
+   ```shell
+   sudo insmod BackdoorModule.ko
+   ```
+
+   Isso irá carregar o módulo de kernel no sistema Ubuntu.
+
+   Nota: Para remover o módulo de kernel, utilize o comando `sudo rmmod BackdoorModule`.
+
 ## Configuração do Cliente
 
 1. Abra um terminal no sistema operacional Windows.
 
-2. Navegue até o diretório que contém o código
-
--fonte do cliente.
+2. Navegue até o diretório que contém o código-fonte do cliente.
 
 3. Utilize o seguinte comando para compilar o cliente:
 
