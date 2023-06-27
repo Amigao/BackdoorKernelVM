@@ -1,6 +1,15 @@
-# BackdoorKernelVM - Configurando a Comunicação entre Máquinas Virtuais e Windows
+Claro! Peço desculpas pela confusão anterior. Aqui está o conteúdo final do README em formato de texto:
 
-Este guia descreve as configurações necessárias para estabelecer a comunicação entre máquinas virtuais (VMs) e o sistema operacional Windows. Siga os passos abaixo para configurar corretamente a comunicação entre o servidor (Máquina Virtual Ubuntu) e o cliente (Windows).
+# BackdoorKernelVM
+
+O BackdoorKernelVM é um projeto de comunicação entre uma máquina virtual Linux e o sistema operacional Windows, usando um servidor e um cliente. Este projeto permite a troca de dados entre as duas máquinas por meio de uma conexão TCP/IP.
+
+## Requisitos
+
+- Máquina Virtual Linux (Ubuntu)
+- Sistema operacional Windows
+- Oracle VirtualBox (ou software de virtualização semelhante)
+- GCC (GNU Compiler Collection)
 
 ## Configuração da Rede Virtual
 
@@ -12,9 +21,9 @@ Este guia descreve as configurações necessárias para estabelecer a comunicaç
 
 1. As VMs geralmente possuem endereços IP internos válidos somente dentro da rede virtual. Para permitir a comunicação com o ambiente externo, crie um IP genérico (endereço IP público) mapeado para o endereço IP interno da VM.
 
-2. Utilize uma rede do tipo Network Address Translation (NAT) para simplificar a configuração. Com o NAT, as VMs podem compartilhar um único endereço IP externo, enquanto cada VM possui um endereço IP interno. A tradução de endereço é realizada para permitir a comunicação com o ambiente externo.
+2. Uma opção comum é utilizar uma rede do tipo Network Address Translation (NAT). Essa escolha simplifica a configuração e reduz a necessidade de endereços IP públicos. Com o NAT, as VMs podem compartilhar um único endereço IP externo, enquanto cada VM possui um endereço IP interno. A tradução de endereço é realizada para permitir a comunicação com o ambiente externo.
 
-   No nosso caso, estamos usando a máquina virtual da Oracle (VirtualBox); siga o passo a passo disponível [aqui](https://stackoverflow.com/questions/48138413/how-to-connect-through-socket-to-virtual-machine) para configurar a rede NAT do nosso socket.
+   No nosso caso, estamos usando a máquina virtual da Oracle (VirtualBox); você pode seguir o seguinte passo a passo para configurar a rede NAT do nosso socket: [Link para o passo a passo](https://stackoverflow.com/questions/48138413/how-to-connect-through-socket-to-virtual-machine).
 
 ## Lidando com o Firewall do Windows
 
@@ -22,36 +31,53 @@ Este guia descreve as configurações necessárias para estabelecer a comunicaç
 
 2. Certifique-se de configurar as permissões adequadas no firewall do Windows. Isso pode envolver a abertura de portas específicas ou a criação de regras para permitir o tráfego entre a VM e o Windows. Consulte a documentação oficial do Windows para obter instruções específicas de configuração do firewall.
 
-## Execução do Servidor (Máquina Virtual Ubuntu)
+## Configuração do Servidor
 
-Certifique-se de que o servidor esteja em execução antes de iniciar o cliente. O cliente precisa se conectar a um servidor ativo para estabelecer uma comunicação adequada.
+1. Abra a máquina virtual (Ubuntu) e navegue até o diretório que contém o código-fonte do servidor.
 
-1. Acesse a Máquina Virtual Ubuntu onde o servidor será executado.
+2. Utilize o seguinte comando para compilar o código do servidor e gerar o executável. Certifique-se de ter o GCC instalado no sistema:
 
-2. Abra um terminal e navegue até o diretório onde o código-fonte do servidor está localizado.
+   ```shell
+   make
+   ```
 
-3. Utilize o comando `make` para compilar o código e gerar o executável do servidor.
+   Isso irá compilar o código-fonte do servidor e gerar o executável "server".
 
-4. Após compilar com sucesso, execute o servidor com o comando `./server`. O servidor começará a aguardar por conexões de clientes.
+3. Após a compilação bem-sucedida, execute o servidor usando o seguinte comando:
 
-5. Mantenha o servidor em execução durante o tempo necessário para a comunicação com o cliente.
+   ```shell
+   ./server
+   ```
 
-## Execução do Cliente (Windows)
+   O servidor agora está em execução e aguardando conexões.
 
-Após compilar e executar o cliente, ele tentará estabelecer uma conexão com o servidor. Certifique-se de que o servidor esteja em execução e acessível pela rede.
+## Configuração do Cliente
 
-1. Acesse o sistema operacional Windows onde o cliente será executado.
+1. Abra um terminal no sistema operacional Windows.
 
-2. Abra um prompt de comando ou PowerShell e navegue até o diretório onde o código-fonte do cliente está localizado.
+2. Navegue até o diretório que contém o código
 
-3. Utilize o comando adequado para compilar o código-fonte do cliente, dependendo da linguagem de programação e ferramentas utilizadas.
+-fonte do cliente.
 
-4. Após compilar com sucesso, execute o cliente com o comando apropriado.
+3. Utilize o seguinte comando para compilar o cliente:
 
-5. O cliente tentará estabelecer uma conexão com o servidor. Se a conexão for estabelecida com sucesso, a comunicação entre o cliente e o servidor estará em andamento.
+   ```shell
+   make
+   ```
 
-6. Para encerrar a conexão entre o cliente e o servidor, basta pressionar o botão "1" no teclado enquanto o cliente estiver em execução. Isso enviará um comando para o cliente solicitar o encerramento da conexão com o servidor. O cliente tratará esse comando e encerrará a conexão adequadamente.
+   Esse comando utilizará o Makefile fornecido para compilar o código-fonte do cliente e gerar o executável "client".
 
-É importante lembrar que tanto o servidor quanto o cliente devem estar em execução para estabelecer a comunicação, e o encerramento da conexão pelo cliente pode interromper a comunicação entre as duas partes.
+4. Após a compilação bem-sucedida, você pode executar o cliente utilizando o comando:
 
-Certifique-se de seguir todas as etapas corretamente e adaptar as configurações de acordo com o seu ambiente específico. Consulte a documentação relevante do software de virtualização e do sistema operacional para obter informações adicionais, se necessário.
+   ```shell
+   ./client
+   ```
+
+   Certifique-se de que o servidor esteja em execução antes de iniciar o cliente.
+
+   Para encerrar a conexão, basta pressionar o botão 1 no teclado.
+
+Lembre-se de adaptar as instruções conforme o software de virtualização e a plataforma específica que você está utilizando. Consulte a documentação relevante para obter mais informações sobre configuração e solução de problemas.
+
+---
+Repositório relativo ao trabalho da disciplina de Sistemas Operacionais I - SSC0640.
