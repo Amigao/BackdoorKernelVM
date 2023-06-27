@@ -1,5 +1,3 @@
-Aqui está o guia completo:
-
 # BackdoorKernelVM - Configurando a Comunicação entre Máquinas Virtuais e Windows
 
 Este guia descreve as configurações necessárias para estabelecer a comunicação entre máquinas virtuais (VMs) e o sistema operacional Windows. Siga os passos abaixo para configurar corretamente a comunicação entre o servidor (Máquina Virtual Ubuntu) e o cliente (Windows).
