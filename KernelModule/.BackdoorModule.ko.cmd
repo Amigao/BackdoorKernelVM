@@ -1,0 +1,1 @@
+cmd_/home/vboxuser/Backdoor/KernelModule/BackdoorModule.ko := ld -r  -m elf_x86_64 -z noexecstack   --build-id=sha1  -T scripts/module.lds -o /home/vboxuser/Backdoor/KernelModule/BackdoorModule.ko /home/vboxuser/Backdoor/KernelModule/BackdoorModule.o /home/vboxuser/Backdoor/KernelModule/BackdoorModule.mod.o;  true
