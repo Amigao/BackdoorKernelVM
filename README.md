@@ -42,9 +42,7 @@ Após compilar e executar o cliente, ele tentará estabelecer uma conexão com o
 
 1. Acesse o sistema operacional Windows onde o cliente será executado.
 
-2.
-
- Abra um prompt de comando ou PowerShell e navegue até o diretório onde o código-fonte do cliente está localizado.
+2. Abra um prompt de comando ou PowerShell e navegue até o diretório onde o código-fonte do cliente está localizado.
 
 3. Utilize o comando adequado para compilar o código-fonte do cliente, dependendo da linguagem de programação e ferramentas utilizadas.
 
