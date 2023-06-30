@@ -2,6 +2,8 @@
 #include <stdint.h>
 #include <SDL2/SDL.h>
 
+// Código para transformar a imagem .raw gerada pelo Snapshot.c em png.
+
 #define OUTPUT_FILE "screenshot.raw" // Nome do arquivo de saída
 #define SCREEN_WIDTH 800            // Largura da janela
 #define SCREEN_HEIGHT 600           // Altura da janela

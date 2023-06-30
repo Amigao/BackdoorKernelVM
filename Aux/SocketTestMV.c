@@ -7,6 +7,8 @@
 
 #define SERVER_PORT 1234
 
+// Código usado para testar a criação do socket entre máquina virtual e Windows.
+
 int main() {
     int sockfd, client_sock;
     struct sockaddr_in server_addr, client_addr;

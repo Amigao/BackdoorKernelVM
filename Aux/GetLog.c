@@ -9,6 +9,8 @@
 
 #define BUFFER_SIZE 1024
 
+// Código de teste para pegar as informações do log do kernel. No ubuntu, há um arquivo de texto do log do kernel.
+
 int main() {
     int fd;
     fd_set fds;

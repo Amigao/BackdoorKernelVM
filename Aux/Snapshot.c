@@ -10,6 +10,8 @@
 
 #define FRAMEBUFFER_DEVICE "/dev/fb0" // Caminho para o dispositivo do framebuffer
 
+// Código de teste para tirar os snapshots de memória de vídeo.
+
 void captureScreen() {
     int fb_fd = open(FRAMEBUFFER_DEVICE, O_RDWR); // Abre o dispositivo do framebuffer
 
