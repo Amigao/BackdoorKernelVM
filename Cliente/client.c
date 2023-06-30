@@ -65,7 +65,7 @@ int main() {
             printf("Conexao encerrada pelo servidor.\n");
             break;
         } else {
-            printf("%s", buffer);
+            printf("Tecla pressionada: %s\n", buffer);
         }
     }
 
