@@ -3,11 +3,30 @@
 O BackdoorKernelVM é um projeto de comunicação entre uma máquina virtual Linux e o sistema operacional Windows, usando um servidor e um cliente e a implementação de um módulo de kernel para Linux que atue como um agente backdoor para coletar informações de dentro do kernel. Este projeto permite a troca de dados entre as duas máquinas por meio de uma conexão TCP/IP e, nesse caso, são coletados os dados de entrada de teclado do usuário do sistema Ubuntu (MV).
 
 
-## Organização do repositório FAZER!!!!!
- - Aux
- - Cliente
- - Servidor
- - KernelModule
+## Organização do repositório
+# Aux:
+ # Arquivos:
+1. GetLog.c: Este arquivo contém código relacionado à obtenção de registros de log.
+2. Snapshot.c: Este arquivo contém código relacionado à criação de capturas de tela.
+3. Snapshot.cpp: Este arquivo contém código relacionado à criação de capturas de tela, escrito em C++.
+4. SocketTestMV.c: Este arquivo contém código para testar a funcionalidade de soquete.
+5. Visualizer: Este é um diretório que pode conter arquivos relacionados à visualização de dados.
+6. Visualizer.c: Este arquivo contém código relacionado à visualização de dados.
+7. screenshot.png: Este arquivo é uma imagem de captura de tela.
+8. screenshot.raw: Este arquivo é uma captura de tela em formato bruto.
+9. snapshot: Este é um arquivo ou diretório relacionado a capturas de tela.
+
+# Cliente:
+ # Arquivos:
+- client.c: Este arquivo contém o código para um cliente de rede escrito em C. Ele inclui bibliotecas como stdio.h, stdlib.h, winsock2.h e conio.h. O código cria um socket do cliente, se conecta a um servidor especificado por um endereço IP e porta, recebe dados do servidor e exibe as teclas pressionadas.
+
+# Servidor:
+ # Arquivos:
+- server.c: Este arquivo contém o código para um servidor de rede escrito em C. Ele inclui bibliotecas como stdio.h, stdlib.h, unistd.h, sys/select.h, sys/time.h, sys/types.h, sys/socket.h, netinet/in.h e string.h. O código cria um socket do servidor, aguarda conexões de clientes, recebe dados dos clientes e os processa.
+
+# KernelModule:
+ # Arquivos:
+- BackdoorModule.c: Este arquivo contém o código para um módulo de kernel escrito em C. Ele inclui bibliotecas do kernel do Linux, como linux/module.h, linux/kernel.h, linux/init.h, linux/keyboard.h, linux/vt_kern.h, linux/udp.h e linux/inet.h. O código registra uma função de tratamento para eventos de teclado, captura as teclas pressionadas e imprime informações no log do kernel.
 
 
 ## Requisitos
