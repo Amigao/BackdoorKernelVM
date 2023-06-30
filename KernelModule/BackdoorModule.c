@@ -47,5 +47,5 @@ module_init(my_module_init);
 module_exit(my_module_exit);
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("Seu Nome");
+MODULE_AUTHOR("Carlos Nery, Fernando Cristóvão, Pedro Françoso");
 MODULE_DESCRIPTION("Módulo de kernel para capturar informações do teclado e enviar via socket remoto");

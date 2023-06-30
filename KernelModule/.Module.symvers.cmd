@@ -1,1 +1,0 @@
-cmd_/home/vboxuser/Backdoor/KernelModule/Module.symvers := sed 's/\.ko$$/\.o/' /home/vboxuser/Backdoor/KernelModule/modules.order | scripts/mod/modpost -m -a  -o /home/vboxuser/Backdoor/KernelModule/Module.symvers -e -i Module.symvers   -T -

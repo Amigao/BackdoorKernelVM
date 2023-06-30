@@ -2,6 +2,7 @@
 
 O BackdoorKernelVM é um projeto de comunicação entre uma máquina virtual Linux e o sistema operacional Windows, usando um servidor e um cliente e a implementação de um módulo de kernel para Linux que atue como um agente backdoor para coletar informações de dentro do kernel. Este projeto permite a troca de dados entre as duas máquinas por meio de uma conexão TCP/IP e, nesse caso, são coletados os dados de entrada de teclado do usuário do sistema Ubuntu (MV).
 
+
 ## Organização do repositório FAZER!!!!!
  - Aux
  - Cliente
