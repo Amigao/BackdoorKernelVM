@@ -8,7 +8,7 @@ O BackdoorKernelVM é um projeto de comunicação entre uma máquina virtual Lin
 Este repositório contém arquivos e diretórios relacionados a funcionalidades adicionais do projeto.
 - Obtém registros de log.
 - Cria capturas de tela.
-- Permite visualização de dados.
+- Gera as imagens das capturas de tela.
   
 ### Cliente:
 Este repositório contém o código-fonte do cliente de rede.
