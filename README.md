@@ -4,29 +4,28 @@ O BackdoorKernelVM é um projeto de comunicação entre uma máquina virtual Lin
 
 
 ## Organização do repositório
-# Aux:
- # Arquivos:
-1. GetLog.c: Este arquivo contém código relacionado à obtenção de registros de log.
-2. Snapshot.c: Este arquivo contém código relacionado à criação de capturas de tela.
-3. Snapshot.cpp: Este arquivo contém código relacionado à criação de capturas de tela, escrito em C++.
-4. SocketTestMV.c: Este arquivo contém código para testar a funcionalidade de soquete.
-5. Visualizer: Este é um diretório que pode conter arquivos relacionados à visualização de dados.
-6. Visualizer.c: Este arquivo contém código relacionado à visualização de dados.
-7. screenshot.png: Este arquivo é uma imagem de captura de tela.
-8. screenshot.raw: Este arquivo é uma captura de tela em formato bruto.
-9. snapshot: Este é um arquivo ou diretório relacionado a capturas de tela.
-
-# Cliente:
- # Arquivos:
-- client.c: Este arquivo contém o código para um cliente de rede escrito em C. Ele inclui bibliotecas como stdio.h, stdlib.h, winsock2.h e conio.h. O código cria um socket do cliente, se conecta a um servidor especificado por um endereço IP e porta, recebe dados do servidor e exibe as teclas pressionadas.
-
-# Servidor:
- # Arquivos:
-- server.c: Este arquivo contém o código para um servidor de rede escrito em C. Ele inclui bibliotecas como stdio.h, stdlib.h, unistd.h, sys/select.h, sys/time.h, sys/types.h, sys/socket.h, netinet/in.h e string.h. O código cria um socket do servidor, aguarda conexões de clientes, recebe dados dos clientes e os processa.
-
-# KernelModule:
- # Arquivos:
-- BackdoorModule.c: Este arquivo contém o código para um módulo de kernel escrito em C. Ele inclui bibliotecas do kernel do Linux, como linux/module.h, linux/kernel.h, linux/init.h, linux/keyboard.h, linux/vt_kern.h, linux/udp.h e linux/inet.h. O código registra uma função de tratamento para eventos de teclado, captura as teclas pressionadas e imprime informações no log do kernel.
+### Aux:
+Este repositório contém arquivos e diretórios relacionados a funcionalidades adicionais do projeto.
+- Obtém registros de log.
+- Cria capturas de tela.
+- Permite visualização de dados.
+  
+### Cliente:
+Este repositório contém o código-fonte do cliente de rede.
+- Conecta-se a um servidor especificado por um endereço IP e porta.
+- Recebe dados do servidor.
+- Pode exibir as teclas pressionadas pelo usuário.
+  
+### Servidor:
+Este repositório contém o código-fonte do servidor de rede.
+- Cria um socket do servidor.
+- Aguarda conexões de clientes.
+- Recebe dados dos clientes.
+- Processa os dados de acordo com a lógica do aplicativo.
+  
+### KernelModule:
+Este repositório contém o código para um módulo do kernel.
+- Adiciona funcionalidades específicas como extensão do sistema operacional.
 
 
 ## Requisitos
