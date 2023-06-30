@@ -271,7 +271,7 @@ const char* teclas[NUM_TECLAS] = {
     "Yen",
     "Left Meta",
     "Comand (botao Windows)",
-    "Compose"
+    "NULL"
 };
 
 
@@ -384,6 +384,7 @@ int main() {
                     // Enviar dados para o cliente
                     int start = findSemicolon(buffer);
                     shiftStringByCount(buffer, start);
+                    if(atoi(buffer) >= 127) buffer = "127";
                     if (send(client_sock, teclas[atoi(buffer)], bytesRead, 0) == -1) {
                         perror("Erro ao enviar dados para o cliente");
                         exit(1);
