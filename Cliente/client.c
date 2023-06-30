@@ -40,7 +40,7 @@ int main() {
         WSACleanup();
         exit(1);
     } else{
-        printf("Conectado!\n");
+        printf("Conectado! Para parar de receber dados, pressione 1.\n");
     }
 
     while (1) {
