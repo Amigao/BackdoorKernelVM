@@ -18,14 +18,13 @@ Este repositório contém arquivos relacionados a funcionalidades adicionais do 
 Este repositório contém o código-fonte do cliente de rede.
 - Conecta-se a um servidor especificado por um endereço IP e porta.
 - Recebe dados do servidor.
-- Pode exibir as teclas pressionadas pelo usuário.
+- Pode exibir as teclas pressionadas na máquina que sofreu o backdoor bem como um snapshot de memória de vídeo a cada 10 teclas pressionadas.
   
 ### Servidor:
 Este repositório contém o código-fonte do servidor de rede.
 - Cria um socket do servidor.
 - Aguarda conexões de clientes.
-- Recebe dados dos clientes.
-- Processa os dados de acordo com a lógica do aplicativo.
+- Lê o log do kernel para obter quais teclas foram pressionadas em tempo real e envia um snapshot da memória de vídeo a cada 10 teclas pressionadas.
   
 ### KernelModule:
 Este repositório contém o código para um módulo do kernel.
