@@ -5,7 +5,7 @@ O BackdoorKernelVM é um projeto de comunicação entre uma máquina virtual Lin
 ## Autores
 - Carlos Nery Ribeiro 
 - Fernando Clarindo Cristovao  
-- Pedro Arthur do Prado Francoso
+- Pedro Arthur Françoso
 
 ## Organização do repositório
 ### Aux:
